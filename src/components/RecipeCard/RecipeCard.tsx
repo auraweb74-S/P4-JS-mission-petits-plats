@@ -1,73 +1,69 @@
 import Image from "next/image";
+import type { Recipe } from "@/types/recipe";
 import styles from "./RecipeCard.module.css";
 
-export default function RecipeCard() {
-    return (
-        <article className={styles.card}>
-            <div className={styles.imageContainer}>
-                <Image
-                    className={styles.image}
-                    src="/images/recipes/Recette01.jpg"
-                    alt="Limonade de Coco"
-                    fill
-                    sizes="
-                (max-width: 768px) calc(100vw - 40px),
-                (max-width: 1100px) calc(43vw - 16px),
-                (max-width: 1674px) calc(28.67vw - 32px),
-                448px
-                "
-                />
+type RecipeCardProps = {
+  recipe: Recipe;
+};
 
-                <time className={styles.time} dateTime="PT10M">
-                    10 min
-                </time>
-            </div>
+export default function RecipeCard({ recipe }: RecipeCardProps) {
+  return (
+    <article className={styles.card}>
+      <div className={styles.imageContainer}>
+        <Image
+          className={styles.image}
+          src={`/images/recipes/${recipe.image}`}
+          alt={recipe.name}
+          fill
+          sizes="
+            (max-width: 768px) calc(100vw - 40px),
+            (max-width: 1100px) calc(43vw - 16px),
+            (max-width: 1674px) calc(28.67vw - 32px),
+            448px
+          "
+        />
 
-            <div className={styles.content}>
-                <h3 className={styles.title}>Limonade de Coco</h3>
+        <time
+          className={styles.time}
+          dateTime={`PT${recipe.time}M`}
+        >
+          {recipe.time} min
+        </time>
+      </div>
 
-                <div className={styles.recipeDetails}>
-                    <h4 className={styles.sectionTitle}>Recette</h4>
+      <div className={styles.content}>
+        <h3 className={styles.title}>{recipe.name}</h3>
 
-                    <p className={styles.description}>
-                        Mettre les glaçons à votre goût dans le blender, ajouter le lait,
-                        la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu’à
-                        avoir la consistance désirée.
-                    </p>
-                </div>
+        <div className={styles.recipeDetails}>
+          <h4 className={styles.sectionTitle}>Recette</h4>
 
-                <div className={styles.ingredientsDetails}>
-                    <h4 className={styles.sectionTitle}>Ingrédients</h4>
+          <p className={styles.description}>{recipe.description}</p>
+        </div>
 
-                    <ul className={styles.ingredients}>
-                        <li className={styles.ingredient}>
-                            <p className={styles.ingredientName}>Lait de coco</p>
-                            <p className={styles.ingredientQuantity}>400 ml</p>
-                        </li>
+        <div className={styles.ingredientsDetails}>
+          <h4 className={styles.sectionTitle}>Ingrédients</h4>
 
-                        <li className={styles.ingredient}>
-                            <p className={styles.ingredientName}>Jus de citron</p>
-                            <p className={styles.ingredientQuantity}>2</p>
-                        </li>
+          <ul className={styles.ingredients}>
+            {recipe.ingredients.map((ingredient) => (
+              <li
+                className={styles.ingredient}
+                key={`${recipe.id}-${ingredient.ingredient}`}
+              >
+                <p className={styles.ingredientName}>
+                  {ingredient.ingredient}
+                </p>
 
-                        <li className={styles.ingredient}>
-                            <p className={styles.ingredientName}>Crème de coco</p>
-                            <p className={styles.ingredientQuantity}>
-                                2 cuillères à soupe
-                            </p>
-                        </li>
-
-                        <li className={styles.ingredient}>
-                            <p className={styles.ingredientName}>Sucre</p>
-                            <p className={styles.ingredientQuantity}>30 grammes</p>
-                        </li>
-
-                        <li className={styles.ingredient}>
-                            <p className={styles.ingredientName}>Glaçons</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </article>
-    );
+                {ingredient.quantity !== undefined && (
+                  <p className={styles.ingredientQuantity}>
+                    {ingredient.quantity}
+                    {ingredient.unit ? ` ${ingredient.unit}` : ""}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </article>
+  );
 }
