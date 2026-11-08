@@ -1,0 +1,102 @@
+.card {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 21px;
+  background-color: var(--color-surface);
+  box-shadow: 0 4px 34px rgb(0 0 0 / 4%);
+}
+
+.imageContainer {
+  position: relative;
+  height: 253px;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.time {
+  position: absolute;
+  z-index: 1;
+  top: 21px;
+  right: 22px;
+  padding: 5px 15px;
+  border-radius: 14px;
+  background-color: var(--color-primary);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.content {
+  padding: 32px 25px 60px;
+}
+
+.title {
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+.recipeDetails {
+  margin-top: 29px;
+}
+
+.sectionTitle {
+  margin: 0 0 15px;
+  color: var(--color-muted);
+  font-family: var(--font-body), Arial, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.description {
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.ingredientsDetails {
+  margin-top: 32px;
+}
+
+.ingredients {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 21px 32px;
+  list-style: none;
+}
+
+.ingredient {
+  min-width: 0;
+}
+
+.ingredientName,
+.ingredientQuantity {
+  font-size: 0.875rem;
+  line-height: 1.3;
+}
+
+.ingredientName {
+  font-weight: 500;
+}
+
+.ingredientQuantity {
+  color: var(--color-muted);
+}
+
+@media (max-width: 480px) {
+  .imageContainer {
+    height: 220px;
+  }
+
+  .content {
+    padding: 28px 20px 40px;
+  }
+
+  .ingredients {
+    column-gap: 20px;
+  }
+}

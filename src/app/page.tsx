@@ -1,6 +1,7 @@
-import Filters from "@/components/Filters/Filters";
 import Header from "@/components/Header/Header";
-import styles from "./page.module.css";
+import styles from "./page.module.css"; import Filters from "@/components/Filters/Filters";
+import RecipeGrid from "@/components/RecipeGrid/RecipeGrid";
+
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
           </h2>
 
           <Filters />
+          <RecipeGrid />
         </section>
       </main>
     </>
