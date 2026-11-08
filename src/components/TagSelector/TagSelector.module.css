@@ -1,0 +1,33 @@
+.selector {
+  display: flex;
+  width: 195px;
+  min-height: 56px;
+  padding: 16px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 11px;
+  background-color: var(--color-surface);
+  font-size: 1rem;
+  text-align: left;
+}
+
+.selector:hover {
+  background-color: var(--color-primary);
+}
+
+.selector:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .selector {
+    width: 100%;
+  }
+}

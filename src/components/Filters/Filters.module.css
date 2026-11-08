@@ -1,0 +1,43 @@
+.filters {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.selectors {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+}
+
+.recipeCount {
+  flex-shrink: 0;
+  font-family: var(--font-title), Impact, sans-serif;
+  font-size: 1.3125rem;
+  font-weight: 400;
+}
+
+@media (max-width: 1024px) {
+  .selectors {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filters {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .selectors {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .recipeCount {
+    align-self: flex-end;
+  }
+}
