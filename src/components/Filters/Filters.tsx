@@ -1,7 +1,10 @@
 import TagSelector from "@/components/TagSelector/TagSelector";
 import styles from "./Filters.module.css";
 
-export default function Filters() {
+type FiltersProps ={
+  recipeCount: number;
+}
+export default function Filters({ recipeCount }: FiltersProps) {
   return (
     <div className={styles.filters}>
       <div className={styles.selectors}>
@@ -10,7 +13,7 @@ export default function Filters() {
         <TagSelector label="Ustensiles" />
       </div>
 
-      <p className={styles.recipeCount}>50 recettes</p>
+      <p className={styles.recipeCount}>{recipeCount} {recipeCount === 1 ? "recette" : "recettes"}</p>
     </div>
   );
 }

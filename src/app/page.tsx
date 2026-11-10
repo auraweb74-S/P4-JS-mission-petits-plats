@@ -1,6 +1,8 @@
 import Header from "@/components/Header/Header";
-import styles from "./page.module.css"; import Filters from "@/components/Filters/Filters";
+import Filters from "@/components/Filters/Filters";
+import { recipes } from "@/data/recipes";
 import RecipeGrid from "@/components/RecipeGrid/RecipeGrid";
+import styles from "./page.module.css";
 
 
 export default function Home() {
@@ -17,7 +19,7 @@ export default function Home() {
             Liste des recettes
           </h2>
 
-          <Filters />
+          <Filters recipeCount={recipes.length} />
           <RecipeGrid />
         </section>
       </main>
