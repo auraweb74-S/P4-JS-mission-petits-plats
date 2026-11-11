@@ -1,0 +1,89 @@
+.page {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: min(calc(100% - 40px), 1440px);
+  min-height: 600px;
+  margin: 20px auto 0;
+  padding: 32px 44px;
+  overflow: hidden;
+  flex: 1;
+  flex-direction: column;
+}
+
+.background {
+  z-index: -2;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-color: rgb(0 0 0 / 55%);
+}
+
+.homeLink {
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.logo {
+  width: 207px;
+  height: auto;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  padding: 48px 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.title {
+  color: var(--color-primary);
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.message {
+  margin-top: 24px;
+  color: var(--color-surface);
+  font-family: var(--font-title), Impact, sans-serif;
+  font-size: 2rem;
+  line-height: 1.25;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    width: calc(100% - 32px);
+    min-height: 520px;
+    margin-top: 16px;
+    padding: 28px 24px;
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  .content {
+    padding-inline: 0;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
+
+  .message {
+    font-size: 1.5rem;
+  }
+}
