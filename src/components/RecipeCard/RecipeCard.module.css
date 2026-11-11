@@ -1,3 +1,13 @@
+.cardLink {
+  display: block;
+  border-radius: 21px;
+}
+
+.cardLink:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
 .card {
   width: 100%;
   overflow: hidden;
