@@ -2,7 +2,15 @@ import Image from "next/image";
 import SearchBar from "@/components/SearchBar/SearchBar";
 import styles from "./Header.module.css";
 
-export default function Header() {
+type HeaderProps = {
+  searchValue: string;
+  onSearchChange: (value: string) => void;
+};
+
+export default function Header({
+  searchValue,
+  onSearchChange,
+}: HeaderProps) {
   return (
     <header className={styles.header}>
       <Image
@@ -29,7 +37,10 @@ export default function Header() {
           Découvrez nos recettes du quotidien, simples et délicieuses
         </h1>
 
-        <SearchBar />
+        <SearchBar
+          value={searchValue}
+          onSearchChange={onSearchChange}
+        />
       </div>
     </header>
   );

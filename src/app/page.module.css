@@ -7,6 +7,16 @@
   margin-inline: auto;
 }
 
+.noResults {
+  margin-top: 55px;
+  padding: 48px 24px;
+  border-radius: 11px;
+  background-color: var(--color-surface);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
 .visuallyHidden {
   position: absolute;
   width: 1px;
@@ -23,5 +33,11 @@
 @media (max-width: 768px) {
   .main {
     padding: 24px 20px 60px;
+  }
+
+  .noResults {
+    margin-top: 40px;
+    padding: 36px 20px;
+    font-size: 1rem;
   }
 }
