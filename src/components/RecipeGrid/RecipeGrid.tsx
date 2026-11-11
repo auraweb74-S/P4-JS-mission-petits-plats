@@ -1,13 +1,19 @@
 import RecipeCard from "@/components/RecipeCard/RecipeCard";
-import { recipes } from "@/data/recipes";
+import type { Recipe } from "@/types/recipe";
 import styles from "./RecipeGrid.module.css";
 
-export default function RecipeGrid() {
-    return (
-        <div className={styles.grid}>
-            {recipes.map((recipe) => (
-                <RecipeCard key={recipe.id} recipe={recipe} />
-            ))}
-        </div>
-    );
+type RecipeGridProps = {
+  recipes: Recipe[];
+};
+
+export default function RecipeGrid({
+  recipes,
+}: RecipeGridProps) {
+  return (
+    <div className={styles.grid}>
+      {recipes.map((recipe) => (
+        <RecipeCard key={recipe.id} recipe={recipe} />
+      ))}
+    </div>
+  );
 }

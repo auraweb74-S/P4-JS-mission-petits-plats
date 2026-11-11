@@ -1,9 +1,8 @@
+import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
-import Filters from "@/components/Filters/Filters";
+import RecipeExplorer from "@/components/RecipeExplorer/RecipeExplorer";
 import { recipes } from "@/data/recipes";
-import RecipeGrid from "@/components/RecipeGrid/RecipeGrid";
 import styles from "./page.module.css";
-
 
 export default function Home() {
   return (
@@ -19,10 +18,11 @@ export default function Home() {
             Liste des recettes
           </h2>
 
-          <Filters recipeCount={recipes.length} />
-          <RecipeGrid />
+          <RecipeExplorer initialRecipes={recipes} />
         </section>
       </main>
+
+      <Footer fluid />
     </>
   );
 }

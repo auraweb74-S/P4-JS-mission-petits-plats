@@ -11,13 +11,18 @@
   text-align: center;
 }
 
+.fluid {
+  width: calc(100% - 40px);
+}
+
 .copyright {
   font-size: 0.75rem;
   line-height: 1.5;
 }
 
 @media (max-width: 768px) {
-  .footer {
+  .footer,
+  .fluid {
     width: calc(100% - 32px);
     min-height: 100px;
     margin-bottom: 16px;
